@@ -1,5 +1,5 @@
 {% set name = "stk" %}
-{% set version = "2024.9.23.0" %}
+{% set version = "2024.9.23.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/stk-{{ version }}.tar.gz
-  sha256: fb99d05d942af7542caeab7749857ade2b60157c8a0dabce76ae0d82e05b1634
+  sha256: 5e6e86982357ec2ee1c6ca4991ee78d27e0db102a9eeace0debad3e775c32a6f
 
 build:
   noarch: python
