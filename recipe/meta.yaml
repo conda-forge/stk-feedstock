@@ -1,5 +1,5 @@
 {% set name = "stk" %}
-{% set version = "2024.9.23.1" %}
+{% set version = "2024.10.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/stk-{{ version }}.tar.gz
-  sha256: 5e6e86982357ec2ee1c6ca4991ee78d27e0db102a9eeace0debad3e775c32a6f
+  sha256: 324c0be2529798a93e0cd6bcba4fe30e421ca330493cc0312d7bab810fc27739
 
 build:
   noarch: python
@@ -33,7 +33,7 @@ requirements:
     - mchammer
     - spindry
     - vabene
-    - rdkit
+    - rdkit !=2024.3.5
 
 test:
   imports:
