@@ -1,6 +1,6 @@
-{% set python_min = '3.11' %}
+{% set python_min = "3.11" %}
 {% set name = "stk" %}
-{% set version = "2024.10.2.0" %}
+{% set version = "2025.7.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/stk-{{ version }}.tar.gz
-  sha256: 324c0be2529798a93e0cd6bcba4fe30e421ca330493cc0312d7bab810fc27739
+  sha256: ff0eab8be71a2d504af4a1df0c05b240405d9bade88479b3ba0e34f20ae4e7db
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -34,7 +34,7 @@ requirements:
     - mchammer
     - spindry
     - vabene
-    - rdkit !=2024.3.5
+    - rdkit !=2024.3.5,<=2024.9.1
 
 test:
   requires:
