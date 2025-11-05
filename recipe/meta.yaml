@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "stk" %}
-{% set version = "2025.10.8.1" %}
+{% set version = "2025.11.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/stk-{{ version }}.tar.gz
-  sha256: 9f8efc147d11aa314fa62eca2b6e74db4fbd30798ee6f6610f55f816a612ded3
+  sha256: df163b0ef897c796a5b9462cfd82f615266f2b850d4d978ad4b67aa220c1355d
 
 build:
   noarch: python
