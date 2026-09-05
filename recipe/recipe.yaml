@@ -1,28 +1,31 @@
-{% set python_min = "3.11" %}
-{% set name = "stk" %}
-{% set version = "2026.1.4.0" %}
+schema_version: 1
+
+context:
+  python_min: "3.11"
+  name: stk
+  version: "2026.1.4.0"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/stk-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/stk-${{ version }}.tar.gz
   sha256: d9b4e16adeaf6d01d7189b7b8fb754f8ec5f8ad83db484ccabef2f6a8bbaa0ad
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python 3.11.*
     - setuptools
     - setuptools-scm
     - pip
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - atomlite
     - scipy
     - matplotlib-base
@@ -36,17 +39,17 @@ requirements:
     - vabene
     - rdkit !=2024.3.5
 
-test:
-  requires:
-    - python {{ python_min }}
-  imports:
-    - stk
-
+tests:
+  - python:
+      imports:
+        - stk
+      pip_check: false
+      python_version: ${{ python_min }}
 about:
-  home: https://github.com/lukasturcani/stk
   summary: A Python library which allows construction and manipulation of complex molecules, as well as automatic molecular design and the creation of molecular databases.
   license: MIT
   license_file: LICENSE
+  homepage: https://github.com/lukasturcani/stk
 
 extra:
   recipe-maintainers:
