@@ -1,7 +1,6 @@
 schema_version: 1
 
 context:
-  python_min: "3.11"
   name: stk
   version: "2026.1.4.0"
 
@@ -20,7 +19,7 @@ build:
 
 requirements:
   host:
-    - python 3.11.*
+    - python ${{ python_min }}.*
     - setuptools
     - setuptools-scm
     - pip
@@ -44,7 +43,10 @@ tests:
       imports:
         - stk
       pip_check: false
-      python_version: ${{ python_min }}
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
 about:
   summary: A Python library which allows construction and manipulation of complex molecules, as well as automatic molecular design and the creation of molecular databases.
   license: MIT
