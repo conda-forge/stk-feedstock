@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: stk
-  version: "2026.10.11.1"
+  version: "2026.10.25.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/stk-${{ version }}.tar.gz
-  sha256: fd59de01ba0c497ed16e3db4b99343ba94500cefe0b1654052702f52e69545a4
+  sha256: fa3bdc7f7df54256821ffc1fd655e3c16eec6e1d18199a2b38b5cfe63750316f
 
 build:
   number: 0
